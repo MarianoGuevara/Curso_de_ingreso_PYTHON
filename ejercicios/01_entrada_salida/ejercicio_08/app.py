@@ -41,10 +41,28 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-        
-        
-    
+        try:
+            n_uno = self.txt_operador_a.get()
+            n_dos = self.txt_operador_b.get()
+
+            n_uno = int(n_uno)
+            n_dos = int(n_dos)
+
+            resultado = n_uno % n_dos
+            mensaje = f"El resto entre {n_uno} y {n_dos} es: {resultado}"
+        except ValueError:
+            mensaje = "Algun valor ingresado no es numero entero"
+        except ZeroDivisionError:
+            mensaje = "No se puede dividir por cero!!"
+        except NameError:
+            mensaje = "Alguna variable o algo no es valida"
+        except:
+            mensaje = "Ocurrio un error inesperado"
+        finally:
+            alert('', mensaje)
+
+
+
 if __name__ == "__main__":
     app = App()
     app.mainloop()

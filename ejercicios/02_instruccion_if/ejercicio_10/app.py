@@ -32,9 +32,43 @@ class App(customtkinter.CTk):
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
 
+    def alertar_mensaje(self, mensaje, nota):
+        alert('', f'La nota {nota} está: {mensaje}')
+
+
+    def generar_num_aleatorio(self):
+        return random.randint(1, 10)
+
+
+    def verificar_reprobado(self, nota):
+        if nota < 4:
+            self.alertar_mensaje('REPROBADA', nota)
+
+
+    def verificar_aprobado(self, nota):
+        if nota > 3 and nota < 6:
+            self.alertar_mensaje('APROBADA', nota)
+
+
+    def verificar_promocion(self, nota):
+        if nota > 5:
+            self.alertar_mensaje('PROMOCIONADA', nota)
+
+
+    def verificar_nota(self, nota):
+        self.verificar_reprobado(nota)
+        self.verificar_aprobado(nota)
+        self.verificar_promocion(nota)
+
+
     def btn_mostrar_on_click(self):
-        pass  
-            
+        # numero_nota = self.generar_num_aleatorio()
+        # self.verificar_nota(numero_nota)
+        edad = int(prompt('', 'edad: '))
+        print(not(edad > 12 and edad < 18))
+        # if not(edad > 12 and edad < 18):
+        #     print("NO ES adolescente")
+
 
 if __name__ == "__main__":
     app = App()

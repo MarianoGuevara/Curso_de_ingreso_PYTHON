@@ -34,12 +34,55 @@ class App(customtkinter.CTk):
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
 
-    def btn_mostrar_on_click(self):
-        pass
+    #ES LITERAL EL 2 
+    def alertar_mensaje(self, mensaje):
+        alert('', mensaje)
 
-        
-        
-    
+
+    def transformar_a_entero(self, entero):
+        try:
+            return int(entero)
+        except ValueError:
+            self.alertar_mensaje('No se ingreso un entero')
+            return False
+
+
+    def verificar_condicion_18_años(self, entero):
+        if entero != False:
+            if entero > 18:
+                return True
+            else:
+                return False
+        else:
+            return -1
+
+
+    def imprimir_mensaje_segun_booleano(self, booleano):
+        if booleano == True:
+            mensaje = "Ud es mayor"
+        elif booleano == False:
+            mensaje = "Ud. NO es mayor"
+        return mensaje
+
+
+    def leer_caja_texto(self, caja_texto):
+        try:
+            return caja_texto.get()
+        except Exception:
+            self.alertar_mensaje('Caja texto no reconocida u oro error')
+            return False
+
+
+    def btn_mostrar_on_click(self):
+        edad = self.leer_caja_texto(self.txt_edad)
+        edad = self.transformar_a_entero(edad)
+
+        booleano = self.verificar_condicion_18_años(edad)
+        msj = self.imprimir_mensaje_segun_booleano(booleano)
+        alert('', msj)
+
+
+
 if __name__ == "__main__":
     app = App()
     app.mainloop()

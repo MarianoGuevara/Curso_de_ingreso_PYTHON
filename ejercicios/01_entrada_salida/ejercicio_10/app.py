@@ -4,6 +4,7 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
+
 '''
 nombre:
 apellido:
@@ -16,7 +17,6 @@ transformarlos en números y mostrar el importe actualizado con el descuento uti
 '''
 
 class App(customtkinter.CTk):
-    
     def __init__(self):
         super().__init__()
 
@@ -40,9 +40,31 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-        
-    
+        try:
+            importe = self.txt_importe.get()
+            descuento = self.txt_descuento.get()
+
+            importe = int(importe)
+            descuento = int(descuento)
+
+            porcentaje_descuento = (importe / 100) * descuento
+
+            importe_con_descuento = importe - porcentaje_descuento
+
+            alert('', f"El importe ({importe}) con un descuento"\
+                f" del {descuento}% es de: {importe_con_descuento}")
+        except ValueError:
+            alert('', "Algun valor ingresado no es numero entero")
+        except ZeroDivisionError:
+            alert('', "No se puede dividir por cero!!")
+        except NameError:
+            alert('', "Alguna variable o algo no es valida")
+        except:
+            alert('', "Ocurrio un error inesperado")
+
+
+
+
 if __name__ == "__main__":
     app = App()
     app.mainloop()

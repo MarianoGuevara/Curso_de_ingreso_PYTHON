@@ -41,9 +41,20 @@ class App(customtkinter.CTk):
 
 
     def btn_sumar_on_click(self):
-        pass
-     
-        
+        try:
+            n_uno = self.txt_operador_a.get()
+            n_dos = self.txt_operador_b.get()
+
+            n_uno = int(n_uno)
+            n_dos = int(n_dos)
+
+            resultado =  n_uno + n_dos
+            alert('suma', f'El resultado de la suma entre {n_uno}'\
+                f' y {n_dos} es de: {resultado}')
+        except Exception:
+            alert('', 'Error en algoo')
+
+
 if __name__ == "__main__":
     app = App()
     app.mainloop()

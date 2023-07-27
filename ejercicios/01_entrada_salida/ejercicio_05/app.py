@@ -41,12 +41,13 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        nombre = self.txt_nombre.get()
+        edad = self.txt_edad.get()
+
+        alert('', f'Su nombre es: {nombre} y'\
+            f' su edad es de: {edad}')
 
 
-        
-        
-    
 if __name__ == "__main__":
     app = App()
     app.mainloop()

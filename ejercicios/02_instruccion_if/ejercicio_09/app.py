@@ -29,8 +29,14 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-        
+        num_random_int = random.randint(1, 100)
+        floated = random.random()
+
+        num_random_float = (num_random_int * floated) + 1
+
+        alert('', f"{num_random_float:.2f}")
+
+
 
 if __name__ == "__main__":
     app = App()

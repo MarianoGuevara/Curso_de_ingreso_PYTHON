@@ -11,7 +11,8 @@ apellido:
 Ejercicio: entrada_salida_03
 ---
 Enunciado:
-Al presionar el botón  'Mostrar', se deberá obtener contenido en la caja de texto y luego mostrarlo utilizando el Dialog Alert
+Al presionar el botón  'Mostrar', se deberá obtener contenido en la 
+caja de texto y luego mostrarlo utilizando el Dialog Alert
 '''
 
 class App(customtkinter.CTk):
@@ -28,15 +29,15 @@ class App(customtkinter.CTk):
         self.txt_nombre = customtkinter.CTkEntry(master=self)
         self.txt_nombre.grid(row=0, column=1)
         
-        
         self.btn_mostrar = customtkinter.CTkButton(master=self, text="Mostrar", command=self.btn_mostrar_on_click)
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
 
     def btn_mostrar_on_click(self):
-        pass
-                
-    
+        nombre = self.txt_nombre.get()
+        alert('', nombre)
+
+
 if __name__ == "__main__":
     app = App()
     app.mainloop()
