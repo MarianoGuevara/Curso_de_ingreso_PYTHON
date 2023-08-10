@@ -306,7 +306,7 @@ class App(customtkinter.CTk):
         pass
 
     def btn_mostrar_informe_3(self):
-        pass        
+        pass
 
     def btn_cargar_cliente_on_click(self):
         pass
